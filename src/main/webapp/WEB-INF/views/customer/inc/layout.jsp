@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>공지사항목록 ${test }</title>
+<title>공지사항</title>
 
 <link href="/assets/css/customer/layout.css" type="text/css" rel="stylesheet" />
 <style>
