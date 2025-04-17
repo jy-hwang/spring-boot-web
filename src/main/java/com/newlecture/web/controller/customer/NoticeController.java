@@ -11,7 +11,7 @@ public class NoticeController {
 
   @GetMapping("/list") // list, detail, edit, reg, del
   public String list(Model model) {
-    model.addAttribute("test", "Hello!");
+    model.addAttribute("test", "Hello! Dev Tools");
     return "customer/notice/list";
   }
 
