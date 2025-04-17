@@ -1,18 +1,18 @@
 package com.newlecture.web.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class HomeController {
 
   @GetMapping("/index")
   public String home() {
-    return "Hello Sring Boot";
+    return "home.index";
   }
 
-  @GetMapping("/abab")
-  public String aabb() {
-    return "aaaa";
+  @GetMapping("/help")
+  public String helpPage() {
+    return "home.help";
   }
 }

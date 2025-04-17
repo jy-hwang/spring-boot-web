@@ -13,24 +13,24 @@ public class NoticeController {
   @GetMapping("list")
   public String listPage() {
     
-    return "admin/board/notice/list";
+    return "admin.board.notice.list";
   }
   
   @GetMapping("detail")
   public String detailPage() {
     
-    return "admin/board/notice/detail";
+    return "admin.board.notice.detail";
   }
   
   @GetMapping("edit")
   public String editPage() {
     
-    return "admin/board/notice/edit";
+    return "admin.board.notice.edit";
   }
   
   @GetMapping("reg")
   public String regPage() {
     
-    return "admin/board/notice/reg";
+    return "admin.board.notice.reg";
   }
 }

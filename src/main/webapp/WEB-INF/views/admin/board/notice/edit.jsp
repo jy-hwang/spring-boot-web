@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <main>
-  <h2 class="main title">공지사항 등록</h2>
+  <h2 class="main title">공지사항 수정</h2>
 
   <div class="breadcrumb">
     <h3 class="hidden">breadlet</h3>
@@ -14,7 +14,7 @@
 
   <form method="post" enctype="multipart/form-data">
     <div class="margin-top first">
-      <h3 class="hidden">공지사항 입력</h3>
+      <h3 class="hidden">공지사항 수정</h3>
       <table class="table">
         <tbody>
           <tr>
@@ -35,7 +35,7 @@
       </table>
     </div>
     <div class="margin-top text-align-center">
-      <input class="btn-text btn-default" type="submit" value="등록" /> <a class="btn-text btn-cancel" href="list.html">취소</a>
+      <input class="btn-text btn-default" type="submit" value="수정" /> <a class="btn-text btn-cancel" href="list.html">취소</a>
     </div>
   </form>
 

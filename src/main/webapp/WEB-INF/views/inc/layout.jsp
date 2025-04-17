@@ -13,7 +13,7 @@
   height: inherit;
   display: flex;
   align-items: center;
-  background: url("/assets/images/mypage/visual.png") no-repeat center;
+  background: url("/assets/images/customer/visual.png") no-repeat center;
 }
 </style>
 </head>
@@ -22,17 +22,9 @@
   <!-- header 부분 -->
   <tiles:insertAttribute name="header" />
 
-  <!-- --------------------------- <visual> --------------------------------------- -->
-  <!-- visual 부분 -->
-  <tiles:insertAttribute name="visual" />
-
   <!-- --------------------------- <body> --------------------------------------- -->
   <div id="body">
     <div class="content-container clearfix">
-
-      <!-- --------------------------- aside --------------------------------------- -->
-      <!-- aside 부분 -->
-      <tiles:insertAttribute name="aside" />
 
       <!-- --------------------------- main --------------------------------------- -->
       <tiles:insertAttribute name="main" />
@@ -42,6 +34,7 @@
 
   <!-- ------------------- <footer> --------------------------------------- -->
   <tiles:insertAttribute name="footer" />
+
 
 </body>
 
