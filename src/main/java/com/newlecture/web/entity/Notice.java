@@ -5,26 +5,26 @@ import java.util.Date;
 public class Notice {
 
   private int no;
-  
+
   private int memberNo;
-  
+
   private String title;
-  
+
   private String content;
-  
+
   private int hit;
-  
+
   private String files;
-  
+
   private Date createdDate;
-  
+
   private Date updatedDate;
-  
+
   private Date deletedDate;
-  
+
   private boolean disclose;
-  
-  public Notice () {}
+
+  public Notice() {}
 
   public Notice(int no, int memberNo, String title, String content, int hit, String files, Date createdDate, Date updatedDate, Date deletedDate, boolean disclose) {
     super();
@@ -125,5 +125,5 @@ public class Notice {
     return "Notice [no=" + no + ", memberNo=" + memberNo + ", title=" + title + ", content=" + content + ", hit=" + hit + ", files=" + files + ", createdDate=" + createdDate + ", updatedDate="
         + updatedDate + ", deletedDate=" + deletedDate + ", disclose=" + disclose + "]";
   }
-  
+
 }

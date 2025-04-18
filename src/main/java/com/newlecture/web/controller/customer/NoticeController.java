@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.newlecture.web.entity.Notice;
+import com.newlecture.web.entity.NoticeView;
 import com.newlecture.web.service.NoticeService;
 
 @Controller
@@ -15,10 +15,10 @@ public class NoticeController {
 
   @Autowired
   private NoticeService noticeService;
-  
+
   @GetMapping("/list") // list, detail, edit, reg, del
   public String list(Model model) {
-    List<Notice> list = noticeService.getList();
+    List<NoticeView> list = noticeService.getList();
     System.out.println(list.toString());
     model.addAttribute("list", list);
     // return "customer/notice/list"; // ResourceViewResolver
@@ -27,7 +27,7 @@ public class NoticeController {
 
   @GetMapping("/detail")
   public String detail() {
-    
+
     return "customer.notice.detail";
   }
 

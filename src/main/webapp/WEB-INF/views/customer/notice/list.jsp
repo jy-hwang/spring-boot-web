@@ -42,7 +42,7 @@
         <tr>
           <td>${n.no }</td>
           <td class="title indent text-align-left"><a href="detail">${n.title }</a></td>
-          <td>${n.memberNo }</td>
+          <td>${n.memberName }</td>
           <td>${n.createdDate }</td>
           <td>${n.hit }</td>
         </tr>

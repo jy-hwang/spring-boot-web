@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.newlecture.web.dao.NoticeDao;
 import com.newlecture.web.entity.Notice;
+import com.newlecture.web.entity.NoticeView;
 
 @Service
 public class NoticeServiceImpl implements NoticeService {
@@ -13,8 +14,8 @@ public class NoticeServiceImpl implements NoticeService {
   private NoticeDao noticeDao;
 
   @Override
-  public List<Notice> getList() {
-    List<Notice> list = noticeDao.getList();
+  public List<NoticeView> getList() {
+    List<NoticeView> list = noticeDao.getList();
 
     return list;
   }
