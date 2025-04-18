@@ -8,7 +8,7 @@ import com.newlecture.web.entity.Notice;
 @Mapper
 public interface NoticeDao {
 
-  @Select("SELECT * FROM notice")
+  @Select("SELECT no, member_no AS memberNo, title, content, hit, created_date AS createdDate FROM notice")
   List<Notice> getList();
 
   Notice getOne(int id);
