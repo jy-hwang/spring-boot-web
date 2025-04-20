@@ -6,7 +6,7 @@ import com.newlecture.web.entity.NoticeView;
 
 public interface NoticeService {
 
-  List<NoticeView> getList();
+  List<NoticeView> getList(int page, String field, String keyword);
 
   Notice getOne(int id);
 

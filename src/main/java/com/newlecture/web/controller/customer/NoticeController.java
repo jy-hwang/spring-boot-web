@@ -18,7 +18,11 @@ public class NoticeController {
 
   @GetMapping("/list") // list, detail, edit, reg, del
   public String list(Model model) {
-    List<NoticeView> list = noticeService.getList();
+    int page = 1;
+    String field = "title";
+    String keyword = "";
+    
+    List<NoticeView> list = noticeService.getList(page, field, keyword);
     System.out.println(list.toString());
     model.addAttribute("list", list);
     // return "customer/notice/list"; // ResourceViewResolver
