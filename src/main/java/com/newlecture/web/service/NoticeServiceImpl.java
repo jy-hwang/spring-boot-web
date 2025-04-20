@@ -84,9 +84,9 @@ public class NoticeServiceImpl implements NoticeService {
   }
 
   @Override
-  public int updateDiscloseAll(int[] discloseNos, int[] closeNods) {
+  public int updateDiscloseAll(int[] discloseNos, int[] closeNos) {
 
-    return noticeDao.updateDiscloseAll(discloseNos);
+    return noticeDao.updateDiscloseAll(discloseNos, closeNos);
   }
 
   @Override

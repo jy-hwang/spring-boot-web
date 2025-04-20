@@ -88,4 +88,25 @@
   #{no}
 </foreach>
   </delete>
+  
+  <update id="updateDiscloseAll">
+    UPDATE notice
+       SET is_disclose = CASE no
+<foreach item="no" collection="disclosenos">
+  WHEN #{no} THEN 1
+</foreach>
+<foreach item="no" collection="closenos">
+  WHEN #{no} THEN 0
+</foreach>       
+       END
+     WHERE no IN (
+<foreach item="no" index="index" collection="disclosenos" separator=","  nullable="true">
+  #{no}
+</foreach>
+                 ,
+<foreach item="no" index="index" collection="closenos" separator=","  nullable="true">
+  #{no}
+</foreach>
+                 )
+  </update>
 </mapper>
