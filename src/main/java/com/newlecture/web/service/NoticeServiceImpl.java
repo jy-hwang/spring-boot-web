@@ -83,10 +83,16 @@ public class NoticeServiceImpl implements NoticeService {
     return noticeDao.insert(notice);
   }
 
-  @Override
-  public int updateDiscloseAll(int[] discloseNos, int[] closeNos) {
+  /*
+   * @Override public int updateDiscloseAll(int[] discloseNos, int[] closeNos) {
+   * 
+   * return noticeDao.updateDiscloseAll(discloseNos, closeNos); }
+   */
 
-    return noticeDao.updateDiscloseAll(discloseNos, closeNos);
+  @Override
+  public int updateDiscloseAll(int[] nos, boolean isDisclose) {
+
+    return noticeDao.updateDiscloseAll(nos, isDisclose);
   }
 
   @Override

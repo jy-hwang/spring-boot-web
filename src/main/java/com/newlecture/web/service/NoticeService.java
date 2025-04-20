@@ -34,8 +34,8 @@ public interface NoticeService {
   int insert(Notice notice);
   
   // 일괄공개를 요청할 때
-  int updateDiscloseAll(int[] discloseNos, int[] closeNos);
-  
+  //int updateDiscloseAll(int[] discloseNos, int[] closeNos);
+  int updateDiscloseAll(int[] nos, boolean isDisclose);
   // 일괄삭제를 요청할 때
   int deleteAll(int[] ids);
 

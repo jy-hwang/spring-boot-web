@@ -91,6 +91,12 @@
   
   <update id="updateDiscloseAll">
     UPDATE notice
+       SET is_disclose = #{disclose}
+     WHERE no in 
+<foreach item="no" index="index" collection="nos" open="(" separator="," close=")" nullable="true">
+  #{no}
+</foreach>  
+<!--     UPDATE notice
        SET is_disclose = CASE no
 <foreach item="no" collection="disclosenos">
   WHEN #{no} THEN 1
@@ -107,6 +113,6 @@
 <foreach item="no" index="index" collection="closenos" separator=","  nullable="true">
   #{no}
 </foreach>
-                 )
+                 ) -->
   </update>
 </mapper>

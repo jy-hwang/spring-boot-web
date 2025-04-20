@@ -26,7 +26,8 @@ public interface NoticeDao {
 
   int delete(int no);
 
-  int updateDiscloseAll(int[] discloseNos, int[] closeNos);
+  //int updateDiscloseAll(int[] discloseNos, int[] closeNos);
+  int updateDiscloseAll(int[] nos, boolean isDisclose);
 
   int deleteAll(int[] nos);
 
