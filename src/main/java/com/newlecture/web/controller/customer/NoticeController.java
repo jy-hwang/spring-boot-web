@@ -23,7 +23,6 @@ public class NoticeController {
     String keyword = "";
     
     List<NoticeView> list = noticeService.getList(page, field, keyword);
-    System.out.println(list.toString());
     model.addAttribute("list", list);
     // return "customer/notice/list"; // ResourceViewResolver
     return "customer.notice.list"; // TilesViewResolver
