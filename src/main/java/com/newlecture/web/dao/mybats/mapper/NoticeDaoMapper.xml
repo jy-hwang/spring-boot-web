@@ -80,4 +80,12 @@
      WHERE NO = #{no}
   </delete>
   
+  <delete id="deleteAll">
+    DELETE
+      FROM notice
+     WHERE no in
+<foreach item="no" index="index" collection="nos" open="(" separator="," close=")" nullable="true">
+  #{no}
+</foreach>
+  </delete>
 </mapper>
