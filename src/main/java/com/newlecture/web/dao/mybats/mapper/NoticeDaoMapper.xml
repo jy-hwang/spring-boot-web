@@ -59,4 +59,25 @@
      ORDER BY created_date DESC
      LIMIT 1
   </select>
+  
+  <update id="update" parameterType="com.newlecture.web.entity.Notice">
+    UPDATE notice
+       SET title = #{title}
+         , content = #{content}
+         , updated_date = CURRENT_TIMESTAMP()
+     WHERE NO = #{no}
+  </update>
+  
+  <insert id="insert" parameterType="com.newlecture.web.entity.Notice">
+    INSERT
+      INTO notice (member_no, title, content)
+    VALUES (#{memberNo}, #{title}, #{content})
+  </insert>
+  
+  <delete id="delete">
+    DELETE
+      FROM notice
+     WHERE NO = #{no}
+  </delete>
+  
 </mapper>
