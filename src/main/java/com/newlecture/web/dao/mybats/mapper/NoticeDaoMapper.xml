@@ -33,4 +33,30 @@
      WHERE no = #{no}
   </select>
   
+  <select id="getNext" resultType="com.newlecture.web.entity.Notice">
+    SELECT no
+         , title
+         , createdDate
+      FROM notice
+     WHERE created_date &gt; (
+                           SELECT created_date
+                             FROM notice
+                            WHERE NO = #{no}
+                          )
+     LIMIT 1
+  </select>
+  
+  <select id="getPrev" resultType="com.newlecture.web.entity.Notice">
+    SELECT no
+         , title
+         , createdDate
+      FROM notice
+     WHERE created_date &lt; (
+                           SELECT created_date
+                             FROM notice
+                            WHERE NO = #{no}
+                          )
+     ORDER BY created_date DESC
+     LIMIT 1
+  </select>
 </mapper>
