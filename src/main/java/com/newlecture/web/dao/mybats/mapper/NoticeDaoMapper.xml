@@ -10,7 +10,12 @@
          , hit
          , createdDate
       FROM notice_view
-     WHERE ${field} LIKE '%${keyword}%'
+<trim prefix="WHERE" prefixOverrides="AND | OR"> 
+  <if test = "keyword != null or keyword != ''">
+           ${field} LIKE '%${keyword}%'
+  </if>
+       AND is_disclose = #{isDisclose}
+</trim>
      ORDER BY createdDate DESC
      LIMIT #{size}
     OFFSET #{offset}

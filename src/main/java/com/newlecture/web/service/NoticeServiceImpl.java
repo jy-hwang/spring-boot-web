@@ -29,7 +29,8 @@ public class NoticeServiceImpl implements NoticeService {
   public List<NoticeView> getViewList(int page, String field, String keyword) {
     int size = 10;
     int offset = (page - 1) * size;
-    List<NoticeView> list = noticeDao.getViewList(offset, size, field, keyword);
+    boolean customer = true;
+    List<NoticeView> list = noticeDao.getViewList(offset, size, field, keyword, customer);
 
     return list;
   }
