@@ -2,16 +2,33 @@ package com.newlecture.web.dao;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 import com.newlecture.web.entity.Notice;
 import com.newlecture.web.entity.NoticeView;
 
 @Mapper
 public interface NoticeDao {
 
-  List<NoticeView> getList(int offset, int size, String field, String keyword);
+  // select
+  List<NoticeView> getViewList(int offset, int size, String field, String keyword);
 
-  Notice getOne(int id);
+  int getCount(String field, String string);
+
+  NoticeView getView(int id);
+
+  Notice getNext(int no);
+
+  Notice getPrev(int no);
+
+  // insert update
+  int update(Notice notice);
+
+  int insert(Notice notice);
+
+  int delete(int no);
+
+  int updateDiscloseAll(int[] discloseNos);
+
+  int deleteAll(int[] nos);
 
 }
 
