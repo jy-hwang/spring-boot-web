@@ -8,10 +8,11 @@ import com.newlecture.web.entity.NoticeView;
 
 @Mapper
 public interface NoticeDao {
-
-  @Select("SELECT no, name as memberName, title, content, hit, createdDate FROM notice_view")
+  //@Results({@Result(property = "memberName", column = "member_name")})
+  @Select("SELECT no, name as memberName, title, content, hit, createDate FROM notice_view")
   List<NoticeView> getList();
 
   Notice getOne(int id);
 
 }
+
