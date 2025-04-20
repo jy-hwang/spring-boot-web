@@ -7,7 +7,6 @@
     SELECT no
          , memberName
          , title
-         , content
          , hit
          , createdDate
       FROM notice_view
@@ -15,6 +14,23 @@
      ORDER BY createdDate DESC
      LIMIT #{size}
     OFFSET #{offset}
+  </select>
+  
+  <select id="getCount">
+    SELECT count(no) AS totalCount
+      FROM notice
+     WHERE ${field} LIKE '%${keyword}%'
+  </select>
+  
+  <select id="getView" resultType="com.newlecture.web.entity.NoticeView">
+    SELECT no
+         , memberName
+         , title
+         , content
+         , hit
+         , createdDate
+      FROM notice_view
+     WHERE no = #{no}
   </select>
   
 </mapper>
