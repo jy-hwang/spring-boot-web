@@ -20,17 +20,22 @@
   <if test = "keyword != null and keyword != ''">
            ${field} LIKE '%${keyword}%'
   </if>
-       AND isDisclose = #{isDisclose}
+       AND is_disclose = #{isDisclose}
 </trim>
      ORDER BY createdDate DESC
      LIMIT #{size}
     OFFSET #{offset}
   </select>
   
-  <select id="getCount">
+  <select id="getCount" resultType="int">
     SELECT count(no) AS totalCount
       FROM notice
-     WHERE ${field} LIKE '%${keyword}%'
+<where>
+  <if test = "keyword != null and keyword != ''">
+           ${field} LIKE '%${keyword}%'
+  </if>
+       AND is_disclose = #{isDisclose}
+</where>
   </select>
   
   <select id="getView" resultType="com.newlecture.web.entity.NoticeView">

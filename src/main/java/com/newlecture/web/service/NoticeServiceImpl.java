@@ -14,23 +14,23 @@ public class NoticeServiceImpl implements NoticeService {
   private NoticeDao noticeDao;
 
   @Override
-  public List<NoticeView> getViewList() {
+  public List<NoticeView> getViewList(boolean disclose) {
 
-    return getViewList(1, "title", "");
+    return getViewList(1, "title", "", disclose);
   }
 
   @Override
-  public List<NoticeView> getViewList(String field, String keyword) {
+  public List<NoticeView> getViewList(String field, String keyword, boolean disclose) {
 
-    return getViewList(1, field, keyword);
+    return getViewList(1, field, keyword, disclose);
   }
 
   @Override
-  public List<NoticeView> getViewList(int page, String field, String keyword) {
+  public List<NoticeView> getViewList(int page, String field, String keyword, boolean disclose) {
     int size = 10;
     int offset = (page - 1) * size;
-    boolean customer = true;
-    List<NoticeView> list = noticeDao.getViewList(offset, size, field, keyword, customer);
+
+    List<NoticeView> list = noticeDao.getViewList(offset, size, field, keyword, disclose);
 
     return list;
   }
@@ -38,13 +38,13 @@ public class NoticeServiceImpl implements NoticeService {
   @Override
   public int getCount() {
 
-    return getCount("title", "");
+    return getCount("title", "", true);
   }
 
   @Override
-  public int getCount(String field, String keyword) {
+  public int getCount(String field, String keyword, boolean isDisclose) {
 
-    return noticeDao.getCount(field, "");
+    return noticeDao.getCount(field, "", isDisclose);
   }
 
   @Override
@@ -84,17 +84,17 @@ public class NoticeServiceImpl implements NoticeService {
     return noticeDao.insert(notice);
   }
 
-  /*
-   * @Override public int updateDiscloseAll(int[] discloseNos, int[] closeNos) {
-   * 
-   * return noticeDao.updateDiscloseAll(discloseNos, closeNos); }
-   */
 
   @Override
-  public int updateDiscloseAll(int[] nos, boolean isDisclose) {
-
-    return noticeDao.updateDiscloseAll(nos, isDisclose);
+  public int updateDiscloseAll(int[] discloseNos, int[] closeNos) {
+    int result = 0;
+    
+    result += noticeDao.updateDiscloseAll(discloseNos, true);
+    result += noticeDao.updateDiscloseAll(closeNos, false);
+    
+    return result;
   }
+
 
   @Override
   public int deleteAll(int[] nos) {

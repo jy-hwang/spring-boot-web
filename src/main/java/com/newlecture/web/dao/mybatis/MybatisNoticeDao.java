@@ -2,7 +2,6 @@ package com.newlecture.web.dao.mybatis;
 
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.newlecture.web.dao.NoticeDao;
 import com.newlecture.web.entity.Notice;
@@ -13,7 +12,6 @@ public class MybatisNoticeDao implements NoticeDao {
 
   private NoticeDao mapper;
 
-  @Autowired
   public MybatisNoticeDao(SqlSession sqlSession) {
     mapper = sqlSession.getMapper(NoticeDao.class);
   }
@@ -25,8 +23,8 @@ public class MybatisNoticeDao implements NoticeDao {
   }
 
   @Override
-  public int getCount(String field, String string) {
-    return mapper.getCount(field, string);
+  public int getCount(String field, String keyword, boolean isDisclose) {
+    return mapper.getCount(field, keyword, isDisclose);
   }
 
   @Override

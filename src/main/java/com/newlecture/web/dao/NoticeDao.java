@@ -11,7 +11,7 @@ public interface NoticeDao {
   // select
   List<NoticeView> getViewList(int offset, int size, String field, String keyword, boolean isDisclose);
 
-  int getCount(String field, String string);
+  int getCount(String field, String keyword, boolean isDisclose);
 
   NoticeView getView(int id);
 
