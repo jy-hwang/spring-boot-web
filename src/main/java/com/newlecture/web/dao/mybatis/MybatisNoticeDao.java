@@ -9,61 +9,64 @@ import com.newlecture.web.entity.Notice;
 import com.newlecture.web.entity.NoticeView;
 
 @Repository
-public class MybatisNoticeDao implements NoticeDao{
+public class MybatisNoticeDao implements NoticeDao {
+
+  private NoticeDao mapper;
 
   @Autowired
-  private SqlSession sqlSession;
-  
+  public MybatisNoticeDao(SqlSession sqlSession) {
+    mapper = sqlSession.getMapper(NoticeDao.class);
+  }
+
   @Override
   public List<NoticeView> getViewList(int offset, int size, String field, String keyword, boolean isDisclose) {
-    NoticeDao noticeDao = sqlSession.getMapper(NoticeDao.class);
-    
-    return noticeDao.getViewList(offset, size, field, keyword, isDisclose);
+
+    return mapper.getViewList(offset, size, field, keyword, isDisclose);
   }
 
   @Override
   public int getCount(String field, String string) {
-    return 0;
+    return mapper.getCount(field, string);
   }
 
   @Override
   public NoticeView getView(int id) {
-    return null;
+    return mapper.getView(id);
   }
 
   @Override
   public Notice getNext(int no) {
-    return null;
+    return mapper.getNext(no);
   }
 
   @Override
   public Notice getPrev(int no) {
-    return null;
+    return mapper.getPrev(no);
   }
 
   @Override
   public int update(Notice notice) {
-    return 0;
+    return mapper.update(notice);
   }
 
   @Override
   public int insert(Notice notice) {
-    return 0;
+    return mapper.insert(notice);
   }
 
   @Override
   public int delete(int no) {
-    return 0;
+    return mapper.delete(no);
   }
 
   @Override
   public int updateDiscloseAll(int[] nos, boolean isDisclose) {
-    return 0;
+    return mapper.updateDiscloseAll(nos, isDisclose);
   }
 
   @Override
   public int deleteAll(int[] nos) {
-    return 0;
+    return mapper.deleteAll(nos);
   }
-  
+
 }
